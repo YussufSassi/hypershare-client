@@ -11,7 +11,7 @@ NEXT_PUBLIC_API_URL=<Your API URL (no trailing slash)>
 NEXT_PUBLIC_CLIENT_URL=<Your frontend URL (no trailing slash)>
 ```
 
-### Run dev server
+## Run dev server
 
 `npm run dev`
 
