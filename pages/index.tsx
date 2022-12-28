@@ -18,6 +18,13 @@ const Home: NextPage = () => {
   const [error, setError] = useState<string>("")
   const upload = async (file: File) => {
     if (!file) return
+    if (file.size > 524000000) {
+      console.log(file.size)
+      setIsUploading(false)
+      setProgress(undefined)
+      setError("File is too large!")
+      return
+    }
     setIsUploading(true)
     setProgress(undefined)
     const formData = new FormData()
@@ -141,7 +148,16 @@ const Home: NextPage = () => {
                 </>
               ) : null}
             </Box>
-            {error && error}
+            {error && (
+              <p
+                style={{
+                  fontWeight: "bold",
+                  color: "red",
+                }}
+              >
+                {error}
+              </p>
+            )}
             {progress && <UploadProgress progress={progress}></UploadProgress>}
           </Box>
 
